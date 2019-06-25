@@ -15,7 +15,7 @@ import utilitarios.HibernateUtil;
 
 /**
  *
- * @author Computer
+ * @author NIL CARDENAS
  */
 public class ClienteDao implements ICliente {
 

@@ -72,12 +72,7 @@
                         </p:dataTable>
                     </h:form>
                 </p:panel>
-                <p:dialog id="dig" header="Eliminar registro" widgetVar="dgEliminar" showEffect="explode" hideEffect="explode" modal="true">
-                    <h:form id="fromEliminar" style="text-align:center;">
-                        <p:commandButton value="Si" action="#{clienteBean.eliminar()}" update=":data:datatable" oncomplete="PF('dgEliminar').hide();"/>
-                        <p:commandButton value="No" onclick="PF('dgEliminar').hide();" />
-                    </h:form>
-                </p:dialog>
+                
             </ui:define>
 
         </ui:composition>
