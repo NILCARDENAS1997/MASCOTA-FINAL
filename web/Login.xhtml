@@ -1,0 +1,61 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml"
+      xmlns:h="http://xmlns.jcp.org/jsf/html"
+      xmlns:p="http://primefaces.org/ui"
+      xmlns:f="http://xmlns.jcp.org/jsf/core">
+    <h:head>
+        <title>Inicio de Sesión</title>
+        <meta name="viewport" content="width=device-width, initial-scale=1.0"/>        
+        <link rel="stylesheet" href="resources/css/materialize.min.css" />
+        <link rel="stylesheet" href="resources/css/estilosLogin.css" />
+        <f:event type="preRenderView" listener="#{loginBean.verificarSesionAbierta()}" />
+    </h:head>
+    <div id="particles-js"></div>
+    <h:body>
+        <div class="valign-wrapper" id="login-page">
+            <div class="container">
+                <div class="center-align">
+                    <div class="row">
+                        <div class="col s12 m8 l6 offset-m2 offset-l3">
+                            <div class="card z-depth-5">
+                                <div class="card-content">
+                                    <h4>Irresistibles</h4>
+                                    <img class="responsive-img" style="max-width: 100px;" src="resources/img/icon/logo_login.png" />
+                                    <div class="left-align">
+                                        <h:form id="login-form">
+                                            <div class="row">
+                                                <p:growl autoUpdate="true" showDetail="true" />
+                                                <div class="col s10 input-field offset-s1">
+                                                    <h:inputText id="usuario" value="#{loginBean.login.usuario}" required="true" requiredMessage="- El usuario es requerido" class="usuario" />
+                                                    <h:outputLabel for="usuario" value="Usuario" />
+                                                </div>
+                                                <div class="col s10 input-field offset-s1">
+                                                    <h:inputSecret id="password" value="#{loginBean.login.pass}" required="true" requiredMessage="- La Contraseña es requerida" />
+                                                    <h:outputLabel for="password" value="Contraseña" />
+                                                </div>
+                                                <div class="col s10 input-field offset-s1">
+                                                    <h:commandButton value="Login" styleClass="btn btn-large" action="#{loginBean.iniciarSesion()}" />
+                                                </div>
+                                            </div>
+                                        </h:form>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+        
+        <script>
+            $(document).on("ready", function(){
+                $('#login-page').css({'height': window.innerHeight + 'px'});
+                $('.usuario').focus();
+            });
+        </script>
+        <script src="resources/js/materialize.min.js"></script>
+        <script src="resources/js/particles.min.js"></script>
+        <script src="resources/js/particulas.js"></script>
+    </h:body>
+</html>

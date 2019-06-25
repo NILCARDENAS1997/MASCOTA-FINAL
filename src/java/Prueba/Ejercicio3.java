@@ -23,7 +23,7 @@ public class Ejercicio3 {
         Session session = HibernateUtil.getSessionFactory().openSession();
         MascotaDao mascotadao = new MascotaDao();
         Mascota actualizardatos = new Mascota(7, "Brunooo", "Jesus", "Chihuahua");
-        mascotadao.actualizarMascota(session, actualizardatos);
+        mascotadao.actualizarMascota( actualizardatos);
         
         session.beginTransaction();
         session.saveOrUpdate(actualizardatos);

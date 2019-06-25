@@ -50,16 +50,16 @@ public class MascotaBean {
             return "/index.xhtml";
             }
 
-    public boolean actualizarMascota() {
-
-        boolean respuesta = true;
-        try {
-            MascotaDao mascotaDao = new MascotaDao();
-
-        } catch (Exception e) {
-            respuesta = false;
-        }
-        return respuesta;
+    public String actualizarMascota() {
+        MascotaDao dao =new  MascotaDao();
+        boolean respuesta= dao.actualizarMascota(mascota);
+            if(respuesta){
+                
+                FacesContext.getCurrentInstance().addMessage(null, new FacesMessage("Correcto","Registro actualizo con exito"));
+            }else{
+                FacesContext.getCurrentInstance().addMessage(null, new FacesMessage("Error","No se pudo actualizar"));
+            }
+            return "/index.xhtml";
     }
 
     public ArrayList<Mascota> listarMascotas() {

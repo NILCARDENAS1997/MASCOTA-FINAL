@@ -1,0 +1,325 @@
+body{
+    
+}
+
+.ui-datatable thead th, .ui-datatable tbody td, .ui-datatable tfoot td {
+    border-style: none;
+}
+
+.ui-paginator .ui-paginator-page,
+.ui-paginator .ui-paginator-pages,
+.ui-paginator .ui-paginator-next,
+.ui-paginator .ui-paginator-last,
+.ui-paginator .ui-paginator-first,
+.ui-paginator .ui-paginator-prev,
+.ui-paginator .ui-paginator-current{
+    margin-left: 0px !important;
+    margin-right: 0px !important;
+}
+
+.ui-paginator-current{
+    display: block;
+    width: 100%;
+    color: black;
+    margin-top: 10px;
+}
+
+.ui-paginator{
+    padding: 8px 13px !important;
+    margin-bottom: 10px;
+}
+
+.ui-paginator-pages{
+    padding-left: 0px !important;
+    padding-right: 0px !important;
+}
+
+.ui-paginator-page{
+    padding: 6px 12px !important;
+    color: #337ab7;
+    background-color: #fff;
+    border: 1px solid #ddd;
+}
+
+.ui-paginator-prev{
+    padding: 6px 8px !important;
+    color: #337ab7;
+    background-color: #fff;
+    border: 1px solid #ddd;
+    border-radius: 4px 0px 0px 4px !important;
+}
+
+.ui-paginator-next{
+    padding: 6px 8px !important;
+    color: #337ab7;
+    background-color: #fff;
+    border: 1px solid #ddd;
+    border-radius: 0px 4px 4px 0px !important;
+}
+
+.ui-icon-seek-prev{
+    display: box;
+    width: 19px;
+    height: 19px;
+    background-image: url(../img/icon/prev.png);
+    background-repeat: no-repeat;
+    background-size: 19px 19px;
+    
+}
+
+.ui-paginator-rpp-options, .ui-column-filter{
+    height: 34px;
+    padding: 6px 12px;
+    font-size: 14px;
+    line-height: 1.42857143;
+    color: #555;
+    background-color: #fff;
+    background-image: none;
+    border: 1px solid #ccc;
+    border-radius: 4px;
+    transition: border-color ease-in-out .15s,box-shadow ease-in-out .15s;
+}
+
+.ui-selectonemenu-label{
+    padding-top: 0px;
+}
+
+.ui-selectonemenu-item{
+    background: #fff;
+}
+
+.ui-selectonemenu-items{
+    background: #fff;
+}
+
+.ui-selectonemenu{
+    height: 34px;
+    width: 100% !important;
+    padding: 6px 12px;
+    font-size: 14px;
+    line-height: 1.42857143;
+    color: #555;
+    background-color: #fff;
+    background-image: none;
+    border: 1px solid #ccc;
+    border-radius: 4px;
+    transition: border-color ease-in-out .15s,box-shadow ease-in-out .15s;
+}
+.ui-state-hover{
+    background: #e0f7fa;
+}
+
+.ui-state-active{
+    background: #337ab7;
+    color: #fff;
+}
+
+.ui-state-disabled{
+    color: #777;
+    cursor: not-allowed !important;
+    background-color: #ddd;
+    
+}
+
+.ui-icon-seek-next{
+    display: box;
+    width: 19px;
+    height: 19px;
+    background-image: url(../img/icon/next.png);
+    background-repeat: no-repeat;
+    background-size: 19px 19px;
+    
+}
+
+table{
+    margin-bottom: 0px !important;
+}
+
+.panel-body {
+    padding: 0px;
+    margin-bottom: 40px;
+}
+.panel-primary{
+    margin: 0px;
+}
+
+thead{
+    background: #222 !important;
+    color: white;
+}
+
+.panel{
+    margin-bottom: 60px !important;
+}
+
+.ui-widget-content>td{
+    padding: 6px !important;
+}
+
+.botonSuperior{
+    padding: 4.5px 1px;
+}
+
+.botonnuevo{
+    padding: 7px 13px;
+}
+
+.ui-messages-info, .ui-message-info {
+    color: #3c763d;
+    background-color: #dff0d8;
+    border-color: #d6e9c6;
+}
+
+.ui-datatable-tablewrapper{
+    border: 1px solid #222 !important;
+}
+
+.ui-fileupload-progress{
+    display: none !important;
+}
+
+.ui-fileupload{
+    border: 2px #337ab7 solid;
+}
+
+.ui-fileupload-buttonbar{
+    background: #337ab7;
+}
+
+.ui-fileupload-choose,
+.ui-fileupload-upload,
+.ui-fileupload-cancel{
+    color: #333;
+    background-color: #fff;
+    border: #ccc 1px solid;
+}
+.ui-fileupload-choose:hover,
+.ui-fileupload-upload:hover,
+.ui-fileupload-cancel:hover{
+    background: #ddd;
+    border-color: #333;
+}
+
+.ui-fileupload-choose:active{
+    background: #e0f7fa;
+}
+
+.ui-fileupload-upload:disabled,
+.ui-fileupload-cancel:disabled{
+    background: #ddd;
+    color: #777;
+}
+
+.ui-button-icon-only{
+    border: #333 1px solid;
+}
+
+.ui-icon-plusthick{
+    width: 16px;
+    height: 16px;
+    background-image: url(../img/icon/elegir.png);
+    background-size: 16px 16px;
+}
+
+.ui-icon-arrowreturnthick-1-n{
+    width: 16px;
+    height: 16px;
+    background-image: url(../img/icon/subir.png);
+    background-size: 16px 16px;
+}
+
+.ui-icon-cancel{
+    width: 16px;
+    height: 16px;
+    background-image: url(../img/icon/cancelar.png);
+    background-size: 16px 16px;
+}
+
+.ui-icon-close{
+    width: 16px;
+    height: 16px;
+    background-image: url(../img/icon/eliminar.png);
+    background-size: 16px 16px;
+}
+
+.imgEditar .ui-button-text{
+    width: 16px;
+    height: 16px;
+    background-image: url(../img/icon/imgEditar.png);
+    background-repeat: no-repeat;
+    background-size: 16px 16px;
+    margin: 4px -4px 4px 4px;
+}
+
+.imgEliminar .ui-button-text{
+    width: 16px;
+    height: 16px;
+    background-image: url(../img/icon/imgEliminar.png);
+    background-repeat: no-repeat;
+    background-size: 16px 16px;
+    margin: 4px -4px 4px 4px;
+}
+
+.imgReporte{
+    width: 36px;
+    height: 28px;
+    background-image: url(../img/icon/imgReporte.png);
+    background-repeat: no-repeat;
+    background-size: 16px 16px;
+    background-position-x: 9px;
+    background-position-y: 4px;
+    margin: 4px 1px 4px 4px;
+}
+
+.imgAnular .ui-button-text{
+    width: 16px;
+    height: 16px;
+    background-image: url(../img/icon/imgAnular.png);
+    background-repeat: no-repeat;
+    background-size: 16px 16px;
+    margin: 4px -4px 4px 4px;
+}
+
+.imgSeleccionar .ui-button-text{
+    width: 16px;
+    height: 16px;
+    background-image: url(../img/icon/check.png);
+    background-repeat: no-repeat;
+    background-size: 16px 16px;
+    margin: 4px -4px 4px 4px;
+}
+
+.boton-buscarCliente{
+    padding: 0px !important;
+}
+
+.botonBuscarCliente{
+    height: 34px;
+}
+
+.alineacionVertical{
+    vertical-align:middle !important;
+}
+
+.ui-datagrid-content{
+    border: #ccc 2px solid;
+}
+
+.ui-panel{
+    border: #ccc 1px solid;
+    max-height: 200px !important;
+    max-width: 200px !important;
+}
+
+.ui-panel-titlebar{
+    background: #b2dfdb;
+}
+
+.ui-panel-content{
+    background: #fff !important;
+}
+
+.cuerpo-buscarCliente{
+    margin-bottom: 0px;
+    padding: 20px 20px 0px 20px;
+}
