@@ -5,27 +5,21 @@
  */
 package interfaces;
 
+import entidades.Cargo;
 import entidades.Personal;
 import java.util.ArrayList;
-import org.hibernate.Session;
 
 /**
  *
  * @author Juan Carlos
  */
 public interface IPersonal {
-
+    
     public abstract boolean guardarPersonal(Personal personal);
 
-    public abstract ArrayList<Personal> listarPersonales();
+    public abstract ArrayList<Personal> listarPersonal();
 
     public abstract boolean actualizarPersonal(Personal personal);
 
     public abstract boolean eliminarPersonal(Personal personal);
-
-    public abstract ArrayList<Personal> listPastor(Session session);
-
-    public abstract ArrayList<Personal> listSANDOR(Session session);
-
-    public abstract Integer listCount(Session sesion);
 }

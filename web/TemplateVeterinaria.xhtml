@@ -1,4 +1,3 @@
-<?xml version='1.0' encoding='UTF-8' ?> 
 <!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
 <html xmlns="http://www.w3.org/1999/xhtml"
       xmlns:ui="http://xmlns.jcp.org/jsf/facelets"
@@ -22,15 +21,36 @@
                     </p:submenu>
                     <p:submenu label="MANTENIMIENTOS">
                         <p:column>
-                            <p:submenu label="SELECCIONE">
-                                <p:menuitem value="Mascota" action="/RegistroMascota"/>
+                            <p:submenu label="OPCIONES">
+                                <p:menuitem value="Mascota" action="/index"/>
+                                <p:menuitem value="Mascota por Cliente" action="/MascotaPorCliente"/>
                                 <p:menuitem value="Cliente" action="/RegistroCliente"/>
                                 <p:menuitem value="Personal" action="/RegistroPersonal"/>
+                                <p:menuitem value="Cargo" action="/RCargo"/>
+                         
+                                <p:menuitem value="Tipo Reserva Cita" action="/RegistroTipoReservaCita"/>
+                                <p:menuitem value="Tipo Atencion" action="/RTipoAtencion"/>
+                                <p:menuitem value="Tipo Reserva" action="/RTipoReserva"/>
+                                <p:menuitem value="Registro Atencion" action="/RegistroAtencion"/>
+                                <p:menuitem value="Registro Usuario" action="/RegistroUsuario"/>
+                       
                     
                             </p:submenu>
                         </p:column>
                         
                     </p:submenu>
+                     <p:submenu label="REGISTRESE" >
+                        
+                    </p:submenu>
+                     <p:submenu label="INICIAR SESION">
+                        <p:column>
+                            <p:submenu label="CLIK">
+                                <p:menuitem value="LOGIN" action="/Login"/>           
+                            </p:submenu>
+                        </p:column>
+                        
+                    </p:submenu>
+                    
                   
                 </p:megaMenu>
             </ui:insert>

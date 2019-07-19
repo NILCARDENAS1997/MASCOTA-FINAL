@@ -15,7 +15,7 @@ import utilitarios.HibernateUtil;
 
 /**
  *
- * @author NIL CARDENAS
+ * @author 
  */
 public class ClienteDao implements ICliente {
 
@@ -36,6 +36,7 @@ public class ClienteDao implements ICliente {
                 session.close();
             }
         }
+        session.close();
         return respuesta;
     }
 
@@ -98,8 +99,9 @@ public class ClienteDao implements ICliente {
                 sesion.close();
             }
         }
-
+      
         return resp;
+        
     }
 
 }

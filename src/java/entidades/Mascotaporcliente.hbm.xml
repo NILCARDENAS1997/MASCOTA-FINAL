@@ -1,9 +1,9 @@
 <?xml version="1.0"?>
 <!DOCTYPE hibernate-mapping PUBLIC "-//Hibernate/Hibernate Mapping DTD 3.0//EN"
 "http://www.hibernate.org/dtd/hibernate-mapping-3.0.dtd">
-<!-- Generated 24/06/2019 10:14:05 AM by Hibernate Tools 4.3.1 -->
+<!-- Generated 19-jul-2019 9:58:34 by Hibernate Tools 4.3.1 -->
 <hibernate-mapping>
-    <class name="entidades.Mascotaporcliente" table="mascotaporcliente" catalog="mascotas" optimistic-lock="version">
+    <class name="entidades.Mascotaporcliente" table="mascotaporcliente" catalog="mascota" optimistic-lock="version">
         <composite-id name="id" class="entidades.MascotaporclienteId">
             <key-property name="idMascota" type="int">
                 <column name="idMascota" />

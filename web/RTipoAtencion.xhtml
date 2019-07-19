@@ -1,0 +1,78 @@
+<?xml version='1.0' encoding='UTF-8' ?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml"
+      xmlns:h="http://xmlns.jcp.org/jsf/html"
+      xmlns:ui="http://xmlns.jcp.org/jsf/facelets"
+      xmlns:p="http://primefaces.org/ui"
+      xmlns:f="http://xmlns.jcp.org/jsf/core">
+    <h:head>
+        <title>Facelet Title</title>
+    </h:head>
+    <h:body>
+         <ui:composition template="./TemplateVeterinaria.xhtml">
+
+
+            <ui:define name="content">
+                 <p:growl id="msj" autoUpdate="true"/>
+                <h:form id="from">
+                    <div align="center">
+                    <p:panel>
+                        <f:facet name="header">
+                            <column>
+                                <p:outputLabel value="MANTENIMIENTO TIPO ATENCION"/>  
+                            </column>
+                        </f:facet>
+                          <img src="image/Ave.gif" alt="Nil" height="60"/>
+                        <h:panelGrid columns="2">
+
+                            <p:outputLabel value="Id"/>
+                            <p:inputText value="#{tipoAtencionBean.tipoatencion.idTipoAtencion}" required="true"/>
+                            <p:outputLabel value="Descripcion"/>
+                            <p:inputText value="#{tipoAtencionBean.tipoatencion.descripcion}"/>
+                             
+                           
+                     
+                                <f:selectItem itemLabel="seleccione"/>
+                                <f:selectItem itemLabel="Activo" itemValue="A"/>
+                                <f:selectItem itemLabel="Inactivo" itemValue="I"/>
+
+                        </h:panelGrid>
+                        <p:commandButton  value="Guardar" action="#{tipoAtencionBean.guardarTipoatencion()}" update=":data:datatable,:from"/>
+                        <p:commandButton value="Actualizar" action="#{tipoAtencionBean.actualizarTipoatencion()}" update=":data:datatable,:from"/>
+                    </p:panel>
+                        </div>
+                </h:form>
+                 
+                <p:panel>
+                    <h:form id="data">
+                        <p:dataTable rowKey="#{tipoatencion.idTipoAtencion}" selection="#{tipoAtencionBean.tipoatencion}" selectionMode="single" 
+                                     id="datatable" var="tipoatencion" value="#{tipoAtencionBean.listarTipoatencion()}">
+                            <p:ajax update=":from" event="rowSelect" />
+                            <p:column headerText="Codigo">
+                                <h:outputText value="#{tipoatencion.idTipoAtencion}"/>
+                            </p:column>
+                            <p:column headerText="Descripcion">
+                                <h:outputText value="#{tipoatencion.descripcion}"/>
+                            </p:column>
+                      
+                            
+                            <p:column headerText="Accion">
+                                <p:commandButton value="Eliminar" onclick="PF('dgEliminar').show();">
+                                    <f:setPropertyActionListener target="#{tipoAtencionBean.tipoatencion}" value="#{tipoatencion}" />
+                                </p:commandButton>
+                            </p:column>
+                        </p:dataTable>
+                    </h:form>
+                </p:panel>
+                <p:dialog id="dig" header="Eliminar registro" widgetVar="dgEliminar" showEffect="explode" hideEffect="explode" modal="true">
+                    <h:form id="fromEliminar" style="text-align:center;">
+                        <p:commandButton value="Si" action="#{tipoAtencionBean.eliminar()}" update=":data:datatable" oncomplete="PF('dgEliminar').hide();"/>
+                        <p:commandButton value="No" onclick="PF('dgEliminar').hide();" />
+                    </h:form>
+                </p:dialog>
+            </ui:define>
+
+        </ui:composition>
+    </h:body>
+</html>
+

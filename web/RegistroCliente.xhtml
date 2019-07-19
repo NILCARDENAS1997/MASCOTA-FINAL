@@ -6,7 +6,7 @@
       xmlns:p="http://primefaces.org/ui"
       xmlns:f="http://xmlns.jcp.org/jsf/core">
     <h:head>
-        <title>Registro Cliente</title>
+        <title>REGISTRO CLIENTE</title>
     </h:head>
     <h:body>
          <ui:composition template="./TemplateVeterinaria.xhtml">
@@ -15,23 +15,26 @@
             <ui:define name="content">
                  <p:growl id="msj" autoUpdate="true"/>
                 <h:form id="from">
+                       <div align="center">
                     <p:panel>
+                          
                         <f:facet name="header">
                             <column>
                                 <p:outputLabel value="REGISTRO CLIENTE"/>  
                             </column>
                         </f:facet>
                          <img src="image/Ave.gif" alt="Nil" height="60"/>
+                        
                         <h:panelGrid columns="2">
 
                             <p:outputLabel value="Codigo"/>
-                            <p:inputText value="#{clienteBean.cliente.codigoCliente}" required="true"/>
+                            <p:inputText value="#{clienteBean.cliente.idCliente}" required="true"/>
                             <p:outputLabel value="Nombre Cliente"/>
-                            <p:inputText value="#{clienteBean.cliente.nombreCliente}"/>
+                            <p:inputText value="#{clienteBean.cliente.nombres}"/>
                             <p:outputLabel value="Apellido Cliente"/>
-                            <p:inputText value="#{clienteBean.cliente.apellidoCliente}"/>
+                            <p:inputText value="#{clienteBean.cliente.apellidos}"/>
                             <p:outputLabel value="Fecha Nac:"/>
-                            <p:calendar value="#{clienteBean.cliente.fechaNac}"/>
+                            <p:calendar value="#{clienteBean.cliente.fechanaci}"/>
                             <p:outputLabel value="Email"/>
                             <p:inputText value="#{clienteBean.cliente.email}"/>
                             <p:outputLabel value="Direccion"/>
@@ -40,28 +43,38 @@
                             <p:inputText value="#{clienteBean.cliente.telefono}"/>
                         </h:panelGrid>
                         <p:commandButton value="Guardar" action="#{clienteBean.guardarCleinte()}" update=":data:datatable,:from"/>
+                        
                         <p:commandButton value="Actualizar" action="#{clienteBean.actualizarCliente()}" update=":data:datatable,:from"/>
+                        
                     </p:panel>
+                    </div>
                 </h:form>
                 <p:panel>
                     <h:form id="data">
-                        <p:dataTable rowKey="#{cliente.codigoCliente}" selection="#{clienteBean.cliente}" selectionMode="single" 
+                        <p:dataTable rowKey="#{cliente.idCliente}" selection="#{clienteBean.cliente}" selectionMode="single" 
                                      id="datatable" var="cliente" value="#{clienteBean.listarClientes()}">
                             <p:ajax update=":from" event="rowSelect" />
                             <p:column headerText="Codigo">
-                                <h:outputText value="#{cliente.codigoCliente}"/>
+                                <h:outputText value="#{cliente.idCliente}"/>
                             </p:column>
                             <p:column headerText="Nombre del Cliente">
-                                <h:outputText value="#{cliente.nombreCliente}"/>
+                                <h:outputText value="#{cliente.nombres}"/>
                             </p:column>
                             <p:column headerText="Apellido del Cliente">
-                                <h:outputText value="#{cliente.apellidoCliente}"/>
+                                <h:outputText value="#{cliente.apellidos}"/>
                             </p:column>
                             <p:column headerText="Telefono">
                                 <h:outputText value="#{cliente.telefono}"/>
                             </p:column>
                             <p:column headerText="Fecha Nacimiento">
-                                <h:outputText value="#{cliente.fechaNac}"/>
+                                <h:outputText value="#{cliente.fechanaci}"/>
+                            
+                            </p:column>
+                             <p:column headerText="Email">
+                                <h:outputText value="#{cliente.email}"/>
+                            </p:column>
+                             <p:column headerText="Direccion">
+                                <h:outputText value="#{cliente.direccion}"/>
                             </p:column>
                             <p:column headerText="Accion">
                                 <p:commandButton value="Eliminar" onclick="PF('dgEliminar').show();">

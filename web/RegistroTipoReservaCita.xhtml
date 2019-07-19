@@ -1,0 +1,87 @@
+<?xml version='1.0' encoding='UTF-8' ?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml"
+      xmlns:h="http://xmlns.jcp.org/jsf/html"
+      xmlns:ui="http://xmlns.jcp.org/jsf/facelets"
+      xmlns:p="http://primefaces.org/ui"
+      xmlns:f="http://xmlns.jcp.org/jsf/core">
+    <h:head>
+        <title>REGISTRO CLIENTE</title>
+    </h:head>
+   <body>
+       <ui:composition template="/templete/plantilla.xhtml">
+
+            <ui:define name="content">
+
+                <p:growl id="msj" autoUpdate="true"/>
+                <div align="center">
+                    <h:form id="formUsuario">
+                        <p:panel style="width: 100%">
+                            <f:facet name="header" >
+                                <column>
+                                    <p:outputLabel value="REGISTRAR RESERVA"/>
+                                </column>
+                            </f:facet>
+
+                            <p:panelGrid columns="2">
+                                <p:outputLabel value="ID: " />
+                                <p:inputText value="#{reservacitaBean.reservacista.idReservaCita}" required="true"/>
+                                <p:outputLabel value="Fecha Reserva"/>
+                                <p:calendar locale="es" id="fecNac" value="#{reservacitaBean.reservacista.fecha}" pattern="dd/MM/yyyy" navigator="true" size="9"/>
+                                <p:outputLabel value="Cliente"/>
+                                <p:selectOneMenu value="#{reservacitaBean.idCliente}" effect="fold" required="true">
+                                    <f:selectItem itemLabel="--seleccione--"/>
+                                    <f:selectItems value="#{reservacitaBean.listaCliente}" var="cliente" itemLabel="#{cliente.nombres} " itemValue="#{cliente.idCliente}" />
+                                </p:selectOneMenu>
+                                <p:outputLabel value="Tipo Reserva"/>
+                                <p:selectOneMenu value="#{reservacitaBean.idTipoReserva}" effect="fold" required="true">
+                                    <f:selectItem itemLabel="--seleccione---"/>
+                                    <f:selectItems value="#{reservacitaBean.listaTiporeserva}" var="treserva" itemLabel="#{treserva.descripcion}" itemValue="#{treserva.idTipoReserva}" />
+                                </p:selectOneMenu>
+                                <p:outputLabel value="Usuario"/>
+                                <p:selectOneMenu value="#{reservacitaBean.idUsuario}" effect="fold" required="true">
+                                    <f:selectItem itemLabel="--seleccione---"/>
+                                    <f:selectItems value="#{reservacitaBean.listaUsuario}" var="user" itemLabel="#{user.nombreUsuario}" itemValue="#{user.idUsuario}" />
+                                </p:selectOneMenu>
+
+                            </p:panelGrid>
+                            <p:commandButton value="Nuevo" action="#{reservacitaBean.limpiar()}" update=":formData:DataTableUsuario, formUsuario"/>
+                            <p:commandButton rendered="#{!reservacitaBean.seleccionado}"  value="Registrar" action="#{reservacitaBean.guardarReservacista()}" update=":formData:DataTableUsuario" />
+                            <p:commandButton rendered="#{reservacitaBean.seleccionado}" value="Actualizar" action="#{reservacitaBean.actualizarReservacista()}" update=":formData:DataTableUsuario,:formUsuario"/>
+
+                        </p:panel>
+                    </h:form>
+                    <h:form id="formData">
+                        <p:dataTable rowKey="#{resercista.idReservaCita}" selection="#{reservacitaBean.reservacista}" selectionMode="single" id="DataTableUsuario" style="width: 80%" value="#{reservacitaBean.listarReservacistas()}"  var="resercita">
+                            <p:ajax event="rowSelect" update=":formUsuario" listener="#{reservacitaBean.cambiarSeleccion()}"/>
+
+
+                            <p:column headerText="ITEM">
+                                <p:outputLabel value="#{resercista.idReservaCita}"/>
+                            </p:column>
+                            <p:column headerText="Fecha cita">
+                                <p:outputLabel value="#{resercista.fecha}"/>
+                            </p:column>
+                            <p:column headerText="Cliente">
+                                <p:outputLabel value="#{resercista.cliente.idCliente}"/>
+                            </p:column>
+                            <p:column headerText="Tipo REserva">
+                                <p:outputLabel value="#{resercista.tiporeserva.idTipoReserva}"/>
+                            </p:column>
+                            <p:column headerText="Usuario">
+                                <p:outputLabel value="#{resercista.usuario.idUsuario}"/>
+                            </p:column>
+
+                            <p:column headerText="Opciones" >
+                                <p:commandButton value="Eliminar" action="#{reservacitaBean.eliminarReservacista(resercita)}" update=":formData:DataTableUsuario"/>
+
+                            </p:column>
+                        </p:dataTable>
+                    </h:form>
+
+                </div>
+            </ui:define>
+        </ui:composition>
+    </body>
+</html>
+

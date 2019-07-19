@@ -17,10 +17,9 @@ import org.hibernate.HibernateException;
 
 /**
  *
- * @author NIL CARDENAS
+ * @author SAUL
  */
 @ManagedBean
-//@RequestScoped
 @ViewScoped
 public class ClienteBean implements Serializable {
 
@@ -52,7 +51,7 @@ public class ClienteBean implements Serializable {
             ///transation.rollback();  -- regresa a la anterior
             System.out.println("Error::: " + e);
         }
-        return "/RCliente";
+        return "/RegistroCliente";
     }
 
     public String actualizarCliente() {
@@ -68,7 +67,7 @@ public class ClienteBean implements Serializable {
             ///transation.rollback();  -- regresa a la anterior
             System.out.println("Error::: " + e);
         }
-        return "/RCliente";
+        return "/RegistroCliente";
 
     }
 
@@ -87,7 +86,7 @@ public class ClienteBean implements Serializable {
         } else {
             FacesContext.getCurrentInstance().addMessage(null, new FacesMessage("No se puedo eliminar"));
         }
-        return "/RCliente";
+        return "/RegistroCliente";
     }
 
 }

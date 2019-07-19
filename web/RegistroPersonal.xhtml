@@ -1,35 +1,40 @@
-<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<?xml version="1.0" encoding="UTF-8"?>
+<!--
+To change this license header, choose License Headers in Project Properties.
+To change this template file, choose Tools | Templates
+and open the template in the editor.
+-->
+<!DOCTYPE html>
 <html xmlns="http://www.w3.org/1999/xhtml"
-      xmlns:h="http://xmlns.jcp.org/jsf/html"
-      xmlns:p="http://primefaces.org/ui"
-      xmlns:f="http://xmlns.jcp.org/jsf/core"
-      xmlns:ui="http://xmlns.jcp.org/jsf/facelets">
+      xmlns:h="http://java.sun.com/jsf/html"
+      xmlns:f="http://java.sun.com/jsf/core"
+      xmlns:ui="http://java.sun.com/jsf/facelets"
+      xmlns:p="http://primefaces.org/ui">
     <h:head>
-        <title>REGISTRO PERSONAL</title>
+        <title>TODO supply a title</title>
+        <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
     </h:head>
-    
     <h:body>
         <ui:composition template="./TemplateVeterinaria.xhtml">
 
             <ui:define name="content">
-                <p:growl id="msj" autoUpdate="true"/>
-
+                <p:growl id="msj" autoUpdate="true" />
                 <div align="center">
                     <h:form id="formPersonal">
-                        <p:panel style="width:40">
-                            <f:facet name="header">
+                        <p:panel id="panelPersonal" style="width: 100%">
+                            <f:facet name="header" >
                                 <p:column>
-                                    <p:outputLabel value ="Registro Personales"/>
+                                    <p:outputLabel value="Mantenimiento Personal" />
                                 </p:column>
                             </f:facet>
-                            <img src="image/Ave.gif" alt="Nil" height="60"/>
-                            <p:panelGrid style="width:40 ">
+                            <p:panelGrid style="width: 50% ">
+
                                 <p:row>
                                     <p:column>
                                         <p:outputLabel value="ID"/>
                                     </p:column>
                                     <p:column>
-                                        <p:inputText value="#{personalBean.personal.idPersonal}" required="true"/>
+                                        <p:inputText value="#{personalBean.personal.idPersonal}" />
                                     </p:column>
                                 </p:row>
                                 <p:row>
@@ -37,7 +42,7 @@
                                         <p:outputLabel value="Nombre Personal"/>
                                     </p:column>
                                     <p:column>
-                                        <p:inputText value="#{personalBean.personal.nombre}" required="true"/>
+                                        <p:inputText value="#{personalBean.personal.nombres}" />
                                     </p:column>
                                 </p:row>
                                 <p:row>
@@ -45,7 +50,7 @@
                                         <p:outputLabel value="Apellido Personal"/>
                                     </p:column>
                                     <p:column>
-                                        <p:inputText value="#{personalBean.personal.apellido}" required="true"/>
+                                        <p:inputText value="#{personalBean.personal.apellidos}" />
                                     </p:column>
                                 </p:row>
                                 <p:row>
@@ -53,7 +58,7 @@
                                         <p:outputLabel value="Cargo"/>
                                     </p:column>
                                     <p:column>
-                                        <p:inputText value="#{personalBean.personal.cargo}" required="true"/>
+                                        <p:inputText value="#{personalBean.personal.cargo}" />
                                     </p:column>
                                 </p:row>
                                 <p:row>
@@ -61,7 +66,7 @@
                                         <p:outputLabel value="DNI"/>
                                     </p:column>
                                     <p:column>
-                                        <p:inputText value="#{personalBean.personal.dni}" required="true"/>
+                                        <p:inputText value="#{personalBean.personal.dni}"   />
                                     </p:column>
                                 </p:row>
                                 <p:row>
@@ -69,7 +74,7 @@
                                         <p:outputLabel value="Telefono"/>
                                     </p:column>
                                     <p:column>
-                                        <p:inputText value="#{personalBean.personal.telefono}" required="true"/>
+                                        <p:inputText value="#{personalBean.personal.telefono}"  />
                                     </p:column>
                                 </p:row>
                                 <p:row>
@@ -77,43 +82,48 @@
                                         <p:outputLabel value="Email"/>
                                     </p:column>
                                     <p:column>
-                                        <p:inputText value="#{personalBean.personal.email}" required="true"/>
+                                        <p:inputText value="#{personalBean.personal.email}"  />
                                     </p:column>
                                 </p:row>
+                                
                             </p:panelGrid>
-                            <p:commandButton value="Registrar" action="#{personalBean.guardarPersonal()}" update=":formData:dataTable,:formPersonal"/>
+
+                            <p:commandButton value="Registrar" action="#{personalBean.guardar()}" update=":formData:dataTable,:formPersonal" />
                             <p:commandButton value="Nuevo" action="#{personalBean.limpiar()}" update=":formPersonal"/>
-                            <p:commandButton value="Actualizar" action="#{personalBean.actualizarPersonal()}" update=":formData:dataTable,:formPersonal"/>
+                            <p:commandButton value="Actualizar" action="#{personalBean.actualizar()}" update=":formPersonal,:formData:dataTable"/>
                         </p:panel>
+
                     </h:form>
 
                     <h:form id="formData">
 
-                        <p:dataTable rowKey="#{personal.idPersonal}" selection="#{personalBean.personal}" selectionMode="single" id="dataTable" var="personal" value="#{personalBean.listarPersonales()}">
+                        <p:dataTable rowKey="#{personal.idPersonal}" selection="#{personalBean.personal}" selectionMode="single" id="dataTable" var="personal" value="#{personalBean.listar()}" style="width: 40%">
                             <p:ajax event="rowSelect" update=":formPersonal"/>
                             <p:column headerText="Codigo">
-                                <p:outputLabel value="#{personal.idPersonal}"/>
+                                <p:outputLabel value="#{personal.idPersonal}" />
                             </p:column>
-                            <p:column headerText="Personal">
-                                <p:outputLabel value="#{personal.nombre}"/>
+                            <p:column headerText="Nombre">
+                                <p:outputLabel value="#{personal.nombres}" />
                             </p:column>
                             <p:column headerText="Apellido">
-                                <p:outputLabel value="#{personal.apellido}"/>
+                                <p:outputLabel value="#{personal.apellidos}" />
                             </p:column>
                             <p:column headerText="Cargo">
-                                <p:outputLabel value="#{personal.cargo}"/>
+                                <p:outputLabel value="#{personal.cargo}" />
                             </p:column>
                             <p:column headerText="Telefono">
-                                <p:outputLabel value="#{personal.telefono}"/>
+                                <p:outputLabel value="#{personal.telefono}" />
                             </p:column>
                             <p:column>
-                                <p:commandButton value="ELIMINAR" action="#{personalBean.eliminarPersonal()}" update=":formData:dataTable,:formPersonal"/>
+                                <p:commandButton value="Eliminar" action="#{personalBean.eliminar()}" update=":formData:dataTable,:formPersonal" />
                             </p:column>
                         </p:dataTable>
                     </h:form>
+
                 </div>
             </ui:define>
+
         </ui:composition>
+
     </h:body>
 </html>
-
